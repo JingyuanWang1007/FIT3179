@@ -15,16 +15,26 @@
 </head>
 
 <body>
-    <h1>World economic freedom idex</h1>
+    <h1>TThis is the Week10 HomeWork</h1>
+    <h2>World economic freedom idex</h2>
 
     <div id="visualization"></div>
-
+    <h2>
+        bubbleplot
+    </h2>
+    <div id="bubbleplot"></div>
     <script type="text/javascript">
-        var spec = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/visualization.vl.json";
-        vegaEmbed('#visualization', spec).then(function(result) {
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/choroplethmap.vl.json";
+        vegaEmbed('#visualization', spec1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubbleplot.vl.json";
+        vegaEmbed('#bubbleplot', spec2).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
+    <p>hello World</p>
+
 
 </body>
 
