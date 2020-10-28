@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "GDP per Capita VS Financial Freedom",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "2019 Score",
+      "type": "quantitative",
+      "title": "2019 Economic Freedom Score",
+      "axis": {"tickCount":10}
+    },
+    "y": {
+      "field": "GDP_per_Capita",
+      "type": "quantitative",
+      "axis": {"tickCount": 4},
+      "scale":{"type": "log","domain":[100,1000000]}
+    }
+  },
+  
+  "layer": [
+    {
+      "selection": {
+        "Region_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Americas",
+              "Asia-Pacific",
+              "Europe",
+              "Middle East and North Africa",
+              "Sub-Saharan Africa"
+            ],
+            "range": ["#fc8d59", "#bae4bc", "#41b6c4", "#2c7fb8", "#fbb4b9"]
+          }
+        },
+        "size": {
+          "field": "Population _Millions",
+          "type": "quantitative",
+          "title": "Population_Millions",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.1, 1, 10,40, 100, 1000],
+            "range": [10, 20, 50,100, 200, 400,800]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "Region_highlight", "value": 0.7},
+          "value": 0.1
+        },
+        "tooltip": [
+          {"field": "Country Name", "type": "nominal"},
+          {"field": "2019 Score", "type": "quantitative", "format": ","},
+          {"field": "GDP_per_Capita", "type": "quantitative", "format": ","},
+          {
+            "field": "Population _Millions",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": 20,
+        "fontSize": 11,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country Name", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba' || datum['Country Name']=='Qatar'|| datum['Country Name']=='Macau'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country Name", "type": "nominal"},
+          {"field": "2019 Score", "type": "quantitative", "format": ","},
+          {"field": "GDP_per_Capita","title":"GDP Per Capita", "type": "quantitative", "format": ","},
+          {
+            "field": "Population _Millions",
+            "title":"Population(Millions)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
