@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 650,
+  "height": 400,
+  "title": "World Economic Freedom Situation",
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/custom.geo%20(1).json",
+    "format": {"type": "topojson", "feature": "custom"}
+  },
+  "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/custom.geo%20(1).json",
+        "format": {"type": "topojson", "feature": "custom"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
+            },
+            "key": "Country Name",
+            "fields": ["Freedom situation","2019 Score", "World Rank"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Freedom situation",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Free", "Mostly Free", "Moderately Free", "Mostly Unfree", "Repressed"],
+            "range":["#c7e9b4","#7fcdbb","#1d91c0","#225ea8","#253494"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "Country"},
+          {"field": "2019 Score", "type": "quantitative"},
+          {"field": "World Rank", "type": "quantitative"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
