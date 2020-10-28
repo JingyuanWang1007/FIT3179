@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": { "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/GDP.csv"},
+  "width": 500,
+  "height": 400,
+  "selection": {
+    "highlight":{"type":"single","on":"mouseover"},
+    "select":{"type": "multi"}
+
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Country Name",
+      "title":"Country",
+      "sort": "5_Year_GDP_Growth_Rate"
+
+    },
+    "x": {
+      "aggregate": "sum", 
+      "field": "5_Year_GDP_Growth_Rate",
+      "title": "5 Year GDP Growth Rate",
+      "axis": {"format": ".1s"}
+    },
+    "color": {
+      "field": "Top_Worst",
+      "scale": {"range": ["#2171b5", "#fd8d3c"]},
+      "legend": {"orient": "top", "title": null}
+    },
+  "opacity":{
+    "condition":{"selection":"highlight","value":0.9},
+    "value":0.2
+  },
+    "tooltip":[
+      {"field":"Country Name"},
+      {"field":"5_Year_GDP_Growth_Rate","title":"5 Year GDP Growth Rate"}
+    ]
+  },
+
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
