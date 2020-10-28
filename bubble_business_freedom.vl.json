@@ -1,0 +1,149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 400,
+  "title": "GDP per Capita VS Financial Freedom",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
+  },
+  "params": [
+    {
+      "name":"GDP_Billions_Above",
+      "value":0,
+      "bind":{
+        "input":"range",
+        "min":0,
+        "max":23150,
+        "step":10,
+        "name":"GDP(Billions)"
+      }
+    },
+    {
+      "name":"Region",
+      "bind":{
+        "input":"select",
+        "options":[
+          null,
+          "Americas",
+          "Asia-Pacific",
+          "Europe",
+          "Middle East and North Africa",
+          "Sub-Saharan Africa"
+        ],
+        "labels": [
+          "show all",
+          "Americas",
+          "Asia-Pacific",
+          "Europe",
+          "Middle East and North Africa",
+          "Sub-Saharan Africa"
+        ],
+        "name":"Region_Selection:"
+      }
+    }
+  ],
+  "transform": [
+    {"filter":"Region == null || datum.Region == Region"},
+    {"filter":"datum.GDP_Billions > GDP_Billions_Above"}
+    
+  ],
+  "encoding": {
+    "x": {
+      "field": "2019 Score",
+      "type": "quantitative",
+      "title": "2019 Economic Freedom Score",
+      "axis": {"tickCount": 10}
+    },
+    "y": {
+      "field": "Business Freedom",
+      "type": "quantitative",
+      "axis": {"tickCount": 10}
+    }
+  },
+  
+  "layer": [
+    {
+      "selection": {
+        "Region_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Americas",
+              "Asia-Pacific",
+              "Europe",
+              "Middle East and North Africa",
+              "Sub-Saharan Africa"
+            ],
+            "range": ["#fc8d59", "#bae4bc", "#41b6c4", "#2c7fb8", "#fbb4b9"]
+          }
+        },
+        "size": {
+          "field": "GDP_Billions",
+          "type": "quantitative",
+          "title": "GDP(Billions)",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.1, 1, 10, 100, 1000, 10000],
+            "range": [10, 20, 50, 100, 150, 200, 800]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "Region_highlight", "value": 0.7},
+          "value": 0.1
+        },
+        "tooltip": [
+          {"field": "Country Name", "type": "nominal"},
+          {"field": "2019 Score", "type": "quantitative", "format": ","},
+          {"field": "Business Freedom", "type": "quantitative", "format": ","},
+          {
+            "field": "GDP_Billions",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": 20,
+        "fontSize": 11,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country Name", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']=='Yemen' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country Name", "type": "nominal"},
+          {"field": "2019 Score", "type": "quantitative", "format": ","},
+          {"field": "Business Freedom", "title":"Business Freedom Score","type": "quantitative", "format": ","},
+          {
+            "field": "GDP_Billions",
+            "title":"GDP(Billions)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
