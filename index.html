@@ -15,25 +15,33 @@
 </head>
 
 <body>
-    <h1>This is the Week10 HomeWork</h1>
-    <h2>World economic freedom idex</h2>
-
+    <h1>2019 World Economic Freedom</h1>
+    <h2>World economic freedom situation</h2>
+    <p>hello World</p>
     <div id="visualization"></div>
-    <h2>
-        bubbleplot
-    </h2>
-    <div id="bubbleplot"></div>
+
+    <h2> Fiscalhealth</h2>
+    <p>hello World<strong>nihao</strong></p>
+    <div id="map"></div>
+
+    <h1>barchart</h1>
+    <p>hi</p>
+    <div id="barchart"></div>
+
     <script type="text/javascript">
-        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/choroplethmap.vl.json";
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_score.vl.json";
         vegaEmbed('#visualization', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubbleplot.vl.json";
-        vegaEmbed('#bubbleplot', spec2).then(function(result) {
+        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/Fiscalhealth.vl.json";
+        vegaEmbed('#map', spec2).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/barchart.vl.json";
+        vegaEmbed('#barchart', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
-    <p>hello World</p>
 
 
 </body>
