@@ -28,9 +28,10 @@
             "key": "Country Name",
             "fields": [
               "Fiscal Health",
-              "Trade Freedom",
-              "Labor Freedom ",
-              "Financial Freedom"
+              "Labor Freedom",
+              "Investment Freedom",
+              "Financial Freedom",
+              "Tax Burden"
             ]
           }
         }
@@ -47,8 +48,9 @@
         "tooltip": [
           {"field": "properties.name", "type": "nominal", "title": "Country"},
           {"field": "Fiscal Health", "type": "quantitative"},
-          {"field": "Trade Freedom", "type": "quantitative"},
-          {"field": "Financial Freedom", "type": "quantitative"}
+          {"field": "Financial Freedom", "type": "quantitative"},
+          {"field": "Labor Freedom", "type": "quantitative"},
+          {"field": "Tax Burden", "type": "quantitative"}
         ]
       }
     }
