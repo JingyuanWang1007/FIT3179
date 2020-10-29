@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 650,
   "height": 400,
-  "title": "World Fiscal Health",
+  "title": "World Country Financial  Health",
   "projection": {"type": "equalEarth"},
   "data": {
     "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/custom.geo%20(1).json",
