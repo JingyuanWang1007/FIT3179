@@ -2,10 +2,38 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 500,
   "height": 400,
-  "title": "GDP per Capita VS Financial Freedom",
+  "title":"Economic freedom VS GDP per Capita",
   "data": {
     "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
   },
+  "params": [
+    {
+      "name":"Region",
+      "bind":{
+        "input":"select",
+        "options":[
+          null,
+          "Americas",
+          "Asia-Pacific",
+          "Europe",
+          "Middle East and North Africa",
+          "Sub-Saharan Africa"
+        ],
+        "labels": [
+          "show all",
+          "Americas",
+          "Asia-Pacific",
+          "Europe",
+          "Middle East and North Africa",
+          "Sub-Saharan Africa"
+        ],
+        "name":"Region_Selection:"
+      }
+    }
+  ],
+  "transform": [
+    {"filter":"Region == null || datum.Region == Region"}
+  ],
   "encoding": {
     "x": {
       "field": "2019 Score",
@@ -15,6 +43,7 @@
     },
     "y": {
       "field": "GDP_per_Capita",
+      "title":"GDP per Capita",
       "type": "quantitative",
       "axis": {"tickCount": 4},
       "scale":{"type": "log","domain":[100,1000000]}
