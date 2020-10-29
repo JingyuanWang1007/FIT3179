@@ -20,25 +20,19 @@
     <p>hello World</p>
     <div id="visualization"></div>
 
-    <h2> Fiscalhealth</h2>
+    <h2> bubble plot</h2>
     <p>hello World<strong>nihao</strong></p>
     <div id="map"></div>
 
-    <h1>barchart</h1>
-    <p>hi</p>
-    <div id="barchart"></div>
+
 
     <script type="text/javascript">
         var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_score.vl.json";
         vegaEmbed('#visualization', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/Fiscalhealth.vl.json";
+        var spec2 = "httphttps://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubbleplot.vl.json";
         vegaEmbed('#map', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/barchart.vl.json";
-        vegaEmbed('#barchart', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
