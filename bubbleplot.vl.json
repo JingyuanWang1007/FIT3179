@@ -45,7 +45,7 @@
           }
         },
         "size": {
-          "field": "GDP (Billions, PPP)",
+          "field": "GDP_Billions",
           "type": "quantitative",
           "title": "GDP(Billions)",
           "scale": {
