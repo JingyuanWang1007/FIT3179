@@ -115,7 +115,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba' || datum['Country Name']=='Qatar'|| datum['Country Name']=='Macau'",
+            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba' || datum['Country Name']=='Qatar'|| datum['Country Name']=='Macau' || datum['Country Name']=='Rwanda'|| datum['Country Name']=='Eritrea'|| datum['Country Name']=='Angola'||datum['Country Name']=='Korea, North'",
             "value": 1
           },
           "value": 0
