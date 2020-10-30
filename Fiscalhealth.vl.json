@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 370,
+  "height": 200,
+  "background":"#fff7ec",
+  "title": "World Country Financial  Health",
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/custom.geo%20(1).json",
+    "format": {"type": "topojson", "feature": "custom"}
+  },
+  "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/custom.geo%20(1).json",
+        "format": {"type": "topojson", "feature": "custom"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
+            },
+            "key": "Country Name",
+            "fields": [
+              "Fiscal Health",
+              "Labor Freedom",
+              "Investment Freedom",
+              "Financial Freedom",
+              "Tax Burden"
+            ]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Fiscal Health",
+          "type": "quantitative",
+          "scale": { "domain": [10, 20,30,40, 60, 80, 100],
+          "range":["#c6dbef","#9ecae1","#6baed6","#4292c6",
+"#2171b5","#08519c"]}
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "Country"},
+          {"field": "Fiscal Health", "type": "quantitative"},
+          {"field": "Financial Freedom", "type": "quantitative"},
+          {"field": "Labor Freedom", "type": "quantitative"},
+          {"field": "Tax Burden", "type": "quantitative"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
