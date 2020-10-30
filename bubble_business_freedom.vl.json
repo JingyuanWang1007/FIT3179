@@ -92,8 +92,8 @@
           "title": "GDP(Billions)",
           "scale": {
             "type": "threshold",
-            "domain": [0.1, 1, 10, 100, 1000],
-            "range": [10, 20, 50, 100, 150, 400]
+            "domain": [ 1, 10, 100, 1000],
+            "range": [10, 50, 100, 200, 400]
           }
         },
         "opacity": {
@@ -126,7 +126,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']=='Yemen' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba'",
+            "test": "datum['Country Name']=='China'|| datum['Country Name']=='United States' || datum['Country Name']=='Australia' || datum['Country Name']== 'Hong Kong' || datum['Country Name']=='Yemen' || datum['Country Name']== 'Singapore' || datum['Country Name']=='Cuba'|| datum['Country Name']=='Haiti' || datum['Country Name']=='Ecuador'",
             "value": 1
           },
           "value": 0
