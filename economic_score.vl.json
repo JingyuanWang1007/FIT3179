@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 600,
-  "height": 350,
+  "width": 550,
+  "height": 300,
   "background":"#fff7ec",
   "title": "World Economic Freedom Situation",
   "projection": {"type": "equalEarth"},
@@ -51,3 +51,4 @@
   ],
   "config": {}
 }
+
