@@ -3,6 +3,7 @@
   "data": { "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/GDP.csv"},
   "width": 320,
   "height": 180,
+  "background":"#fff7ec",
   "selection": {
     "highlight":{"type":"single","on":"mouseover"},
     "select":{"type": "multi"}
