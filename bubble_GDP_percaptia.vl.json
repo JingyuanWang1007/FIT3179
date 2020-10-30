@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 500,
   "height": 400,
+  "background":"#fff7ec",
   "title":"Economic freedom VS GDP per Capita",
   "data": {
     "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_freedom_index12019_data.csv"
