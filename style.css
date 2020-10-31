@@ -1,0 +1,87 @@
+.page {
+    width: 1100px;
+    background-color: #fff7ec;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+body {
+    background-color: lightgray;
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.6em;
+}
+
+h1 {
+    text-align: center;
+    font-size: 45px;
+}
+
+h4 {
+    text-align: center;
+    font-style: italic;
+}
+
+.container1 {
+    width: 95%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.container1 h2 {
+    font-size: 25px;
+    line-height: 1.2em;
+}
+
+.container1 p {
+    line-height: 2em;
+    padding-bottom: 15px;
+}
+
+.container2 {
+    width: 94%;
+    margin: auto;
+    line-height: 2em;
+    padding-top: 30px;
+}
+
+.container2 h2 {
+    font-size: 25px;
+}
+
+.container3 {
+    width: 95%;
+    margin: auto;
+    line-height: 2em;
+    padding-top: 30px;
+}
+
+.container3 h2 {
+    font-size: 25px;
+}
+
+.contianer4 {
+    width: 95%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.contianer4 h2 {
+    font-size: 25px;
+}
+
+.contianer4 p {
+    line-height: 2em;
+}
+
+.container5 {
+    width: 95%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.container5 {
+    line-height: 2em;
+}
