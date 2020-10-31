@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "data": { "url": "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/GDP.csv"},
-  "width": 320,
-  "height": 180,
+  "width": 400,
+  "height": 270,
   "background":"#fff7ec",
   "selection": {
     "highlight":{"type":"single","on":"mouseover"},
