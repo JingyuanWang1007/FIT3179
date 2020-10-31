@@ -20,7 +20,7 @@
     "x": {
       "aggregate": "sum", 
       "field": "5_Year_GDP_Growth_Rate",
-      "title": "5 Year GDP Growth Rate",
+      "title": "5 Year GDP Growth Rate(%)",
       "axis": {"format": ".1s"}
     },
     "color": {
