@@ -8,31 +8,147 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
     <!-- Import vega-embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <!-- CSS file -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .description-left {
+            padding-right: 20px;
+        }
+        
+        .description-right {
+            padding-left: 30px;
+            text-align: left
+        }
+        
+        .text_size {
+            font-size: 17px
+        }
+        
+        .vis-container {
+            width: 100%;
+        }
+        
+        .vis-container1 {
+            padding-left: 30px;
+        }
+        
+        .vis-container3 {
+            padding-right: 100px;
+        }
+        
+        .small-font {
+            font-size: 14px;
+        }
+    </style>
 
 </head>
 
 <body>
-    <h1>2019 World Economic Freedom</h1>
-    <h2>World economic freedom situation</h2>
-    <p>hello World</p>
-    <div id="visualization"></div>
+    <div class="page">
 
-    <h2> bubble plot</h2>
-    <p>hello World<strong>hi</strong></p>
-    <div id="map"></div>
+        <h1>2019 World Economic Freedom</h1>
+        <h4>This visualization shows some maps and diagrams about world ecomoic situation and some data that closely related to countries' economic performance </h4>
 
 
+        <div class="container1">
+            <div class="pure-g">
+                <div class="pure-u-2-3">
+                    <div id="visualization" class="vis-container3"></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="description-right">
+                        <h2>World Index of Economic Freedom</h2>
+                        <p>This is Choropleth map of the <strong> World Index of Economic Freedom.</strong> The <strong>Economic Freedom</strong> is the fundamental right of every human to control his or her ownlabor and property. The Index of Economic Freedom,
+                            an annual report released by the Wall Street Journal and the American Heritage Foundation, covers 186 countries and regions around the world and is one of the world's authoritative indicators of economic freedom. The higher
+                            the score on an index, the higher the level of government intervention in the economy, and therefore the lower the level of economic freedom.Here is the <strong>five</strong> economic freedom levels.</p>
 
-    <script type="text/javascript">
-        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_score.vl.json";
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="container2">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="description-left">
+                        <h2> World Fiscal Health</h2>
+                        <p>Fiancial health is the ability of a country to manage its finances and it is shown by the <strong>Fiscal Health Score</strong> on the map. It also has the relation to a country's <strong>Financial Freedom Score, Labor Freedom Score and Tax Burden etc. </strong>                            These figures clearly reflect the financial situation of a country's government and people. Then you can find these data from the tooltip.</p>
+                    </div>
+
+                </div>
+                <div class="pure-u-2-3">
+                    <div id="map" class="vis-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contianer4">
+            <h2>Economic Freedom Score VS Business Freedom</h2>
+            <p>This <strong>bubble plot</strong> shows the relationship between the Economic Freedom Score and business freedom situation. You can find out as the Economic Freedom score <strong>increase</strong> the corresbonding country has <strong>higher</strong>                Business Freedom Score. It means this country has better commercial environment. And the <strong>size of the bubble</strong> shows the GDP of ths country. </p>
+            <div id="bubble"></div>
+        </div>
+
+
+        <div class="container5">
+            <div class="text_size">
+                <h2>Economic Freedom Score VS GDP per Capita</h2>
+            </div>
+
+            <p> This <strong>bubble plot</strong> shows the relationship of Economic Freedom Score and GDP per Capita. The countries with higher Economic Freedom usually have higher GDP(per capita). And we can find out this does not have relationship with
+                the
+                <strong>country size</strong> by looking at the <strong>size of the bubble.</strong></p>
+            <div id="bubble1"></div>
+        </div>
+
+        <div class="container3">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="description description-left">
+                        <h2>GDP Growth Rate</h2>
+                        <p>The <strong>GDP growth rate</strong> is the percentage change in the value of all of the goods and services produced in a nation during a specific period of time, as compared to an earlier period. This also reflect the <strong>ecomoic freedom change</strong>                            of a country. This <strong> diverging bar chart</strong> shows the top 10 positive change and worst 10 negeative change of the world country.</p>
+                    </div>
+                </div>
+                <div class="pure-u-2-3">
+                    <div id="barchart" class="vis-container1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1 small-font">
+                <p>This visualisation is created by <a href="https://jingyuanwang1007.github.io/FIT3179/" target="_blank">Jingyuan Wang 28312406</a>. The datasource is <a href="#" " target="_blank ">some data repository online</href>.</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript ">
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/economic_score.vl.json ";
         vegaEmbed('#visualization', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
-        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubbleplot.vl.json";
+        var spec2 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/Fiscalhealth.vl.json ";
         vegaEmbed('#map', spec2).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubble_business_freedom.vl.json ";
+        vegaEmbed('#bubble', spec1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/bubble_GDP_percaptia.vl.json ";
+        vegaEmbed('#bubble1', spec1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        var spec1 = "https://raw.githubusercontent.com/JingyuanWang1007/FIT3179/main/barchart.vl.json ";
+        vegaEmbed('#barchart', spec1).then(function(result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
